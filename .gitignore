@@ -1,0 +1,3 @@
+
+*.cmd
+node_mixbattle/node_modules/.bin/npm
