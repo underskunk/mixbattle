@@ -5,7 +5,7 @@
 <form method="POST" enctype="multipart/form-data">
     Choisissez une fichier a envoyer:
     <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload Image" name="submit">
+    <input type="submit" value="Envoyer" name="submit">
 </form>
 
 </body>
@@ -13,7 +13,8 @@
 
 <?php
 $target_dir = "music/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$basename = basename($_FILES["fileToUpload"]["name"]);
+$target_file = $target_dir . $basename;
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 $error_sentence = "";
@@ -46,9 +47,27 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        echo "Le fichier ". basename( $_FILES["fileToUpload"]["name"]). " a bien été envoyé.";
+        echo "Le fichier ". $basename. " à bien été envoyé.";
     } else {
         echo "Désolé, une erreur est survenu lors de l'envoie de ce fichier.";
     }
 }
+
+$hote = '127.0.0.1';
+$port = "";
+$nom_bdd = 'mixbattle';
+$utilisateur = 'root';
+$mot_de_passe ='';
+
+try {
+    //On test la connexion à la base de donnée
+    $pdo = new PDO('mysql:host='.$hote.';port='.$port.';dbname='.$nom_bdd, $utilisateur, $mot_de_passe);
+} catch(Exception $e) {
+    echo "Connection failed";
+}
+
+
+$add_name_request = $pdo->prepare("INSERT INTO `son` (`id_son`, `id_membre`, `nom`, `id_theme`) VALUES (NULL, NULL, :name, NULL);");
+$add_name_request->bindParam(':name', $basename);
+$add_name_request->execute();
 ?>

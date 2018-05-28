@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  sam. 26 mai 2018 à 21:22
+-- Généré le :  lun. 28 mai 2018 à 02:29
 -- Version du serveur :  10.1.30-MariaDB
 -- Version de PHP :  7.2.1
 
@@ -21,6 +21,29 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `mixbattle`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `son`
+--
+
+CREATE TABLE `son` (
+  `id_son` int(11) NOT NULL,
+  `id_membre` int(11) DEFAULT NULL,
+  `nom` varchar(100) NOT NULL,
+  `id_theme` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `son`
+--
+
+INSERT INTO `son` (`id_son`, `id_membre`, `nom`, `id_theme`) VALUES
+(1, NULL, 'coucou', NULL),
+(2, NULL, 'Lions - Can You Hear Me.mp3', NULL),
+(3, NULL, 'Nirvana - Heart-Shaped Box.mp3', NULL),
+(4, NULL, 'Nirvana - Heart-Shaped Box.mp3', NULL);
 
 -- --------------------------------------------------------
 
@@ -69,6 +92,12 @@ INSERT INTO `theme_en_cours` (`id_en_cours`, `theme_en_cours`, `id`) VALUES
 --
 
 --
+-- Index pour la table `son`
+--
+ALTER TABLE `son`
+  ADD PRIMARY KEY (`id_son`);
+
+--
 -- Index pour la table `themes`
 --
 ALTER TABLE `themes`
@@ -77,6 +106,12 @@ ALTER TABLE `themes`
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
+
+--
+-- AUTO_INCREMENT pour la table `son`
+--
+ALTER TABLE `son`
+  MODIFY `id_son` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `themes`
