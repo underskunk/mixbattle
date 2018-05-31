@@ -1,0 +1,9 @@
+{
+    "name": "mon-app",
+    "version": "0.1.0",
+    "dependencies": {
+        "howler": "^2.0.12",
+        "mysql": "~2.15.0",
+        "socket.io": "~2.1.0"
+    }
+}

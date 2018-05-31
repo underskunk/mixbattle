@@ -1,8 +1,6 @@
 var http = require('http');
 var fs = require('fs');
 var mysql = require('mysql');
-var moment = require('moment');
-moment().format();
 
 // Chargement du fichier index.html affiché au client
 var server = http.createServer(function(req, res) {
