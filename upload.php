@@ -16,7 +16,7 @@ $hote = '127.0.0.1';
 $port = "";
 $nom_bdd = 'mixbattle';
 $utilisateur = 'root';
-$mot_de_passe ='';
+$mot_de_passe ='root';
 
 try {
     //On test la connexion à la base de donnée
@@ -31,7 +31,6 @@ if(isset($_POST["submit"])) {
     $target_dir = "music/";
     $basename = basename($_FILES["fileToUpload"]["name"]);
     $target_file = $target_dir . $basename;
-    $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
     $error_sentence = "";
 
@@ -69,3 +68,5 @@ if(isset($_POST["submit"])) {
     }
 }
 ?>
+
+<a href="lecteur.php">Lecteur</a>

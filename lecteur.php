@@ -44,7 +44,7 @@ $hote = '127.0.0.1';
 $port = "";
 $nom_bdd = 'mixbattle';
 $utilisateur = 'root';
-$mot_de_passe ='';
+$mot_de_passe = 'root';
 
 try {
     //On test la connexion à la base de donnée
@@ -98,6 +98,8 @@ for ($i = 0; $i < count($nom); $i++) {
 	<a class="stick5" onclick="volume('audioPlayer', 1)"></a>
 </span>
 
+
+<br><a href="upload.php">Upload</a>
 
 <script type="text/javascript">
 	audio = document.getElementById("audioPlayer");

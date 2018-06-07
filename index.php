@@ -4,23 +4,19 @@
 
 <p id="time"></p>
 
-
-
-
-
-
-
+<a href="lecteur.php">Lecteur</a><br><br>
+<a href="upload.php">Upload</a>
 
 <!-- <p><input type="button" value="Embêter le serveur" id="poke" /></p> -->
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
 <script type="text/javascript">
 
-var socket = io.connect('http://localhost:8081');
+var socket = io.connect('http://151.236.62.165:8081');
 
 socket.on('message', function(message, time) {
-		document.title = message;
-        document.getElementById("title").innerHTML = "Le thème est : " + message;
+		document.title = message.charAt(0).toUpperCase() + message.substring(1).toLowerCase();
+        document.getElementById("title").innerHTML = "Le thème est : " + message.charAt(0).toUpperCase() + message.substring(1).toLowerCase();
         //document.getElementById("time").innerHTML = time;
     })
 
