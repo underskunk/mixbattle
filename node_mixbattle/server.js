@@ -76,13 +76,15 @@ io.sockets.on('connection', function(socket) {
 		    
 		    // If the count down is over, write some text 
 		    if (distance < 0) {
-		    	clearInterval(x);
+		    	
 		    	socket.emit('time', "EXPIRED");
 	   		}
-		}, 1000);
+	   		clearInterval(x);
+		}, 200);
+	
 	}
 
-	setInterval(date, 1000);
+	setInterval(date, 200);
 });
 
 server.listen(8081);
